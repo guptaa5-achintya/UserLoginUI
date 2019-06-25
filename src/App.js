@@ -1,20 +1,25 @@
 import React from 'react';
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute"
 import Login from "./Login"
 import Home from "./Home"
 import ForgotPassword from "./ForgotPassword"
 
-function App() {
-  return (
-    <div>
-      <Router>
-        <Route exact path = "/" component = {Login}/>
-        <ProtectedRoute path = "/home" component = {Home}/>
-        <Route path = "/forgot-password" component = {ForgotPassword}/>
-      </Router>
-    </div>
-  );
+class App extends React.Component {
+
+  render(){
+    return (
+      <div>
+        <Router>
+            <Switch>
+              <Route path = "/login" component = {Login}/>
+              <ProtectedRoute exact path = "/" component = {Home}/>
+              <Route path = "/forgot-password" component = {ForgotPassword}/>
+            </Switch>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
