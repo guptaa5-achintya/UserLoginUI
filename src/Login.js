@@ -7,8 +7,8 @@ import Loading from './Loading';
 
 
 class Login extends React.Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             loading : false,
             login : false
@@ -25,11 +25,12 @@ class Login extends React.Component {
         this.setState({
             loading: true
         })
-        setTimeout(this.verifyLogin, 3000)
+        setTimeout(this.verifyLogin, 1000)
 
     }
 
     verifyLogin = () => {
+        console.log(Auth.user)
         
         fetch("http://localhost:5000/api/UserLogin/Check", {
             method: 'POST',
@@ -41,15 +42,19 @@ class Login extends React.Component {
             body: JSON.stringify(Auth.user)
         })
             .then(response => response.json())
-            .then(data => this.setState({
-                loading : false,
-                login: data
-            }))
+            .then(data => {
+                console.log(data)
+                this.setState({
+                    loading : false,
+                    login: data
+                }
+            )})
             .catch(e => console.log(e))
     }
 
     render(){
         if(!this.state.loading && this.state.login){
+            console.log("red")
             Auth.user.Password = null;
             Auth.authenticate()
             return <Redirect to = "/"/>

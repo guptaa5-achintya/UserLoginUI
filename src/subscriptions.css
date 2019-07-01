@@ -1,0 +1,77 @@
+.block {
+    box-sizing: border-box;
+    width: 42.5%;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Arial";
+}
+.left {
+    float : left;
+    margin: 20px 2.5% 10px 5%;
+}
+.right {
+    float: right;
+    margin: 20px 5% 10px 2.5%;
+}
+.header {
+    display: inline-block;
+    border: none;
+    padding: 20px 10px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(78, 60, 145);
+    margin-bottom: 0%;
+}
+.list {
+    padding : 20px 5px;
+    background-color: rgb(139, 113, 233); 
+    margin-top: 0%;
+}
+.listItem {
+    background-color: white;
+    border-radius: 15px;
+    margin: 20px;
+    padding: 18px;
+}
+
+.listItem:hover{
+    background-color: rgb(78, 60, 145);
+    opacity: 0.9;
+}
+.listItem:hover .textbox{
+    color: white
+}
+
+.textbox {
+    font-size: 16px;
+    text-align: left;
+    font-family: "Arial";
+    border: none;
+    box-sizing: border-box;
+    margin: 0;
+    width: 90%;
+    padding: 6px;
+    display: inline-block;
+    font-size: 16px;
+    color : rgb(60, 43, 124);
+}
+
+hr {
+    background-color: #fff;
+    border-top: 2px dashed #8c8b8b;
+    clear: both;
+}
+
+.windowButton {
+    width : 44%;
+}
+.windowButton.left {
+    margin : 12px 1% 0 5%;
+}
+.windowButton.right {
+    margin : 12px 5% 0 1%;
+}
+.success {
+    border : none;
+    margin-left: 5%;
+    padding-left: 0;
+}

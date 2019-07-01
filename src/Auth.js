@@ -1,4 +1,3 @@
-import React from 'react'
 
 const Auth = {
     user : {
@@ -11,6 +10,8 @@ const Auth = {
     },
     signout() {
         this.isAuthenticated = false;
+        this.user.Username = null;
+        this.user.Password = null;
     }
 };
 
