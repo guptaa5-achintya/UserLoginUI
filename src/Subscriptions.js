@@ -6,6 +6,7 @@ import Alert from './Alert';
 import { confirmAlert } from 'react-confirm-alert'
 import NewAlertWindow from './NewAlertWindow'
 import SuccessWindow from './SuccessWindow';
+import SubscriptionHeader from './SubscriptionHeader'
 
 
 class Subscriptions extends React.Component{
@@ -179,20 +180,23 @@ class Subscriptions extends React.Component{
         }
         
         return (
-            <Loading loading = {this.state.loading} >
-                <h1 className = "left header block">Subscribed</h1>
-                <h1 className = "right header block">Not Subscribed</h1>
-                <div className = "left list block">
-                    {subscribed}
-                </div>
-                <div className = "right list block">
-                    {unsubscribed}
-                </div>
-                <div className = "form">
-                    <button onClick = {this.handleAddAlert}>Add New Alert</button>
-                    <button onClick = {this.handleSubmit}>Submit Changes</button>
-                </div>
-            </Loading>
+            <div>
+                <SubscriptionHeader handleLogOut = {this.navigateLogin}/>
+                <Loading loading = {this.state.loading} >
+                    <h1 className = "left head block">Subscribed</h1>
+                    <h1 className = "right head block">Not Subscribed</h1>
+                    <div className = "left list block">
+                        {subscribed}
+                    </div>
+                    <div className = "right list block">
+                        {unsubscribed}
+                    </div>
+                    <div className = "form">
+                        <button onClick = {this.handleAddAlert}>Add New Alert</button>
+                        <button onClick = {this.handleSubmit}>Submit Changes</button>
+                    </div>
+                </Loading>
+            </div>
         )  
     }
 }

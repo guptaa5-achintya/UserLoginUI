@@ -47,17 +47,22 @@ class Login extends React.Component {
                 this.setState({
                     loading : false,
                     login: data
+                })
+                if(!data){
+                    alert("Incorrect Username or Password")
                 }
-            )})
+            })
             .catch(e => console.log(e))
     }
 
     render(){
-        if(!this.state.loading && this.state.login){
-            console.log("red")
-            Auth.user.Password = null;
-            Auth.authenticate()
-            return <Redirect to = "/"/>
+        if(!this.state.loading){
+            if(this.state.login){
+                console.log("red")
+                Auth.user.Password = null;
+                Auth.authenticate()
+                return <Redirect to = "/"/>
+            }
         }
 
         return(
